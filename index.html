@@ -143,18 +143,39 @@
 </section>
 
 <section id="centre">
-  <div class="wrap two">
+  <div class="wrap centre-grid">
     <div>
       <p class="eyebrow">Islamic Centre</p>
       <h2>Empat pusat, satu misi</h2>
-      <p class="lead">Tiga pusat di Utara Thailand menjaga pelajar sekolah rendah. Pusat di Saiburi, Pattani membantu pelajar menyambung pengajian ke peringkat sekolah menengah dan universiti.</p>
-      <p>Kami juga menjalankan program di Malaysia, termasuk program khatan tahunan di Sabah.</p>
+      <p class="lead">Tiga pusat di utara Thailand menjaga pelajar sekolah rendah, manakala pusat di Saiburi, Pattani membantu pelajar menyambung pengajian ke peringkat menengah dan universiti.</p>
+      <div class="centre-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Kami juga menjalankan program di Malaysia, termasuk program khatan tahunan di Sabah.</span>
+      </div>
     </div>
-    <div class="tbl-wrap">
-      <table class="tbl">
-        <thead><tr><th>Pusat</th><th class="hide-sm">Wilayah</th><th style="text-align:right">Pelajar</th></tr></thead>
-        <tbody id="centres-body"></tbody>
-      </table>
+
+    <div class="centre-card">
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Pusat</th>
+              <th class="hide-sm">Wilayah</th>
+              <th>Pelajar</th>
+            </tr>
+          </thead>
+          <tbody id="centres-body"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Jumlah Pelajar Aktif (<span data-t="stats.asof">Mei 2026</span>)</td>
+              <td id="centres-total" data-t="stats.students">150</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   </div>
 </section>

@@ -25,10 +25,10 @@ window.DEFAULT_CONTENT = {
   },
   stats: { students: '150', centres: '4', uni: '40', years: '30+', asof: 'Mei 2026' },
   centres: [
-    { id: 'c1', name: 'Phayao Islamic Centre', region: 'Phayao', students: 60, note: '' },
-    { id: 'c2', name: 'Pangsa Islamic Centre', region: 'Chiang Rai', students: 60, note: '' },
-    { id: 'c3', name: 'Wiang Mok Islamic Centre', region: 'Chiang Rai', students: 30, note: '' },
-    { id: 'c4', name: 'Islamic Centre Saiburi', region: 'Pattani', students: 40, note: 'Menengah & universiti' }
+    { id: 'c1', name: 'Phayao Islamic Centre', region: 'Phayao, Utara Thailand', students: 60, note: '' },
+    { id: 'c2', name: 'Pangsa Islamic Centre', region: 'Chiang Rai, Utara Thailand', students: 60, note: '' },
+    { id: 'c3', name: 'Wiang Mok Islamic Centre', region: 'Chiang Rai, Utara Thailand', students: 30, note: '' },
+    { id: 'c4', name: 'Islamic Centre Saiburi', region: 'Pattani, Selatan Thailand', students: 40, note: 'Menengah & universiti' }
   ],
   spending: [
     { year: 2021, amount: 601748.50, type: 'actual' },
