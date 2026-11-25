@@ -5,7 +5,7 @@ window.DEFAULT_CONTENT = {
   site: {
     hero_title: 'Membina Generasi Muslim Baharu Masa Hadapan di Utara Thailand',
     tagline_en: 'Building future Muslim generations in Northern Thailand',
-    hero_text: "Kami menjaga, mendidik dan membimbing anak-anak mualaf dari komuniti 'Orang Bukit' di Phayao dan Chiang Rai, seawal usia 7 tahun.",
+    hero_text: "Kami menjaga, mendidik dan membimbing anak-anak mualaf daripada komuniti 'Orang Bukit' di Phayao dan Chiang Rai, seawal usia 7 tahun.",
     hero_image: 'assets/hero.jpg',
     about_title: 'Meneruskan amanah dakwah yang bermula lebih 30 tahun dahulu',
     about_text: 'Usaha ini dimulakan oleh Almarhum Ustaz Abdul Wahab Ahmad bersama para pendakwah tempatan di wilayah Phayao dan Chiang Rai. Pertubuhan Ar Rahmah Malaysia ditubuhkan untuk meneruskan perjuangan itu, dengan pendidikan yang tersusun untuk anak-anak mualaf supaya saudara baharu tidak kembali mundur.',
