@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin CMS · Ar Rahmah Malaysia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{background:#F3F1EC}
+  .login{min-height:calc(100vh - 30px);display:grid;place-items:center;padding:24px 16px}
+  .login .box{width:100%;max-width:380px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);padding:28px;border-radius:var(--r)}
+  .login img{height:64px;margin:0 auto 12px}
+  .app{display:none;grid-template-columns:232px 1fr;min-height:calc(100vh - 30px)}
+  .app.on{display:grid}
+  .side{background:var(--navy);color:#C9D3E3;padding:20px 0;display:flex;flex-direction:column}
+  .side .who{padding:0 20px 18px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:10px;font-size:.85rem}
+  .side .who b{color:#fff;display:block;font-size:.95rem}
+  .side button{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;font-size:.93rem;min-height:20px}
+  .side button:hover{background:rgba(255,255,255,.06)}
+  .side button[aria-selected=true]{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 3px 0 0 var(--gold)}
+  .side button:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+  .badge{background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:2px}
+  .side .out{margin-top:auto;font-size:.85rem;padding:12px 20px}
+  .side .out a{color:#C9D3E3}
+  .main{padding:28px 32px;min-width:0}
+  .main h1{font-size:1.8rem;margin-bottom:4px}
+  .sub{color:var(--muted);margin-bottom:24px}
+  .view{display:none}.view.on{display:block}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#fff;margin-bottom:24px}
+  .kpis div{padding:18px;border-right:1px solid var(--line)}
+  .kpis div:last-child{border-right:0}
+  .kpis b{font:600 1.8rem var(--serif);color:var(--navy);display:block}
+  .kpis span{font-size:.85rem;color:var(--muted)}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);margin-bottom:24px}
+  .panel-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .panel-h h2{font-size:1.15rem;margin:0}
+  .panel .tbl{border:0}
+  .pill{font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:2px;background:#EEF1F6;color:var(--navy-2)}
+  .pill.ok{background:#E5F2EA;color:var(--ok)}
+  .pill.draft{background:#F6EED6;color:var(--gold-ink)}
+  .pill.new{background:#FBE9E7;color:var(--err)}
+  .link{all:unset;cursor:pointer;color:var(--navy);font-weight:600;font-size:.88rem;text-decoration:underline;text-underline-offset:3px}
+  .link.del{color:var(--err)}
+  .statf{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:18px}
+  .note-box{padding:14px 18px;font-size:.88rem;color:var(--muted)}
+  dialog{border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:var(--r);padding:24px;width:min(440px,calc(100vw - 32px))}
+  dialog::backdrop{background:rgba(10,20,40,.45)}
+  .roles-help{font-size:.85rem;color:var(--muted);background:#F7F5EF;padding:12px;border-radius:var(--r)}
+  @media (max-width:860px){
+    .app{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+    .side{align-self:start}
+    .side{flex-direction:row;overflow-x:auto;padding:0;position:sticky;top:0;z-index:5}
+    .side .who,.side .out{display:none}
+    .side button{white-space:nowrap;padding:14px 16px}
+    .side button[aria-selected=true]{box-shadow:inset 0 -3px 0 var(--gold)}
+    .main{padding:20px 16px}
+    .kpis{grid-template-columns:1fr 1fr}
+    .kpis div:nth-child(2){border-right:0}
+    .kpis div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .statf{grid-template-columns:1fr}
+    .hide-sm{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="mock-bar"><b>DRAF MOCKUP</b> · Pratonton CMS custom (admin) · data contoh, tiada pangkalan data</div>
+
+<div class="login" id="login">
+  <form class="box form" id="loginForm">
+    <img src="assets/logo.png" alt="Ar Rahmah Malaysia">
+    <h1 style="font-size:1.5rem;text-align:center;margin-bottom:0">Log masuk admin</h1>
+    <div><label for="u">Emel</label><input id="u" type="email" value="setiausaha@arrahmah.my" autocomplete="username"></div>
+    <div><label for="p">Kata laluan</label><input id="p" type="password" value="demo1234" autocomplete="current-password"></div>
+    <button class="btn btn-navy" type="submit">Masuk</button>
+    <p class="fine" style="margin:0;text-align:center">Mockup: tekan Masuk terus. Sebenar: setiap admin ada akaun sendiri.</p>
+  </form>
+</div>
+
+<div class="app" id="app">
+  <aside class="side" role="tablist" aria-label="Menu admin">
+    <div class="who"><b>Md Isa Daud</b>Super Admin</div>
+    <button role="tab" aria-selected="true" data-v="dash">Papan pemuka</button>
+    <button role="tab" aria-selected="false" data-v="news">Berita & aktiviti</button>
+    <button role="tab" aria-selected="false" data-v="reports">Laporan</button>
+    <button role="tab" aria-selected="false" data-v="stats">Statistik laman</button>
+    <button role="tab" aria-selected="false" data-v="leads">Pertanyaan penaung <span class="badge" id="leadCount">2</span></button>
+    <button role="tab" aria-selected="false" data-v="admins">Admin & peranan</button>
+    <div class="out"><a href="index.html">Lihat laman awam</a> · <a href="#" id="logout">Keluar</a></div>
+  </aside>
+
+  <main class="main">
+    <!-- dashboard -->
+    <section class="view on" id="v-dash" style="padding:0">
+      <h1>Assalamualaikum, Md Isa</h1>
+      <p class="sub">Ringkasan laman Ar Rahmah Malaysia.</p>
+      <div class="kpis">
+        <div><b id="kNews">3</b><span>berita diterbitkan</span></div>
+        <div><b>2</b><span>pertanyaan penaung baharu</span></div>
+        <div><b>3</b><span>laporan PDF</span></div>
+        <div><b id="kAdmins">3</b><span>admin aktif</span></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h2>Perlu tindakan</h2></div>
+        <table class="tbl">
+          <tbody>
+            <tr><td>Laporan Suku 4, 2026 belum dimuat naik</td><td style="text-align:right"><button class="link" data-go="reports">Muat naik</button></td></tr>
+            <tr><td>2 pertanyaan Penaung Dakwah belum dihubungi</td><td style="text-align:right"><button class="link" data-go="leads">Lihat</button></td></tr>
+            <tr><td>1 berita dalam draf</td><td style="text-align:right"><button class="link" data-go="news">Sunting</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- news -->
+    <section class="view" id="v-news" style="padding:0">
+      <h1>Berita & aktiviti</h1>
+      <p class="sub">Tulis berita, letak gambar, terbit ke laman utama.</p>
+      <div class="panel">
+        <div class="panel-h"><h2>Semua berita</h2><button class="btn btn-gold" id="newNews">Tambah berita</button></div>
+        <div class="tbl-wrap"><table class="tbl" id="newsTbl">
+          <thead><tr><th>Tajuk</th><th class="hide-sm">Kategori</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Program Qurban Chiang Rai 2025</td><td class="hide-sm">Kebajikan</td><td><span class="pill ok">Diterbit</span></td><td><button class="link">Sunting</button></td></tr>
+            <tr><td>Agihan beras kepada keluarga mualaf</td><td class="hide-sm">Kebajikan</td><td><span class="pill ok">Diterbit</span></td><td><button class="link">Sunting</button></td></tr>
+            <tr><td>Persembahan pelajar di majlis komuniti</td><td class="hide-sm">Pendidikan</td><td><span class="pill ok">Diterbit</span></td><td><button class="link">Sunting</button></td></tr>
+            <tr><td>Program khatan tahunan di Sabah</td><td class="hide-sm">Malaysia</td><td><span class="pill draft">Draf</span></td><td><button class="link">Sunting</button></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- reports -->
+    <section class="view" id="v-reports" style="padding:0">
+      <h1>Laporan</h1>
+      <p class="sub">PDF laporan aktiviti & kewangan suku tahunan. Muncul di bahagian "Ketelusan" laman utama.</p>
+      <div class="panel">
+        <div class="panel-h"><h2>Fail laporan</h2>
+          <label class="btn btn-gold" style="margin:0">Muat naik PDF<input type="file" accept="application/pdf" id="pdf" hidden></label></div>
+        <table class="tbl" id="repTbl">
+          <tbody>
+            <tr><td>Laporan aktiviti & kewangan · Suku 3, 2026</td><td class="hide-sm fine">2.1 MB</td><td style="text-align:right"><span class="pill ok">Awam</span></td></tr>
+            <tr><td>Laporan aktiviti & kewangan · Suku 2, 2026</td><td class="hide-sm fine">1.8 MB</td><td style="text-align:right"><span class="pill ok">Awam</span></td></tr>
+            <tr><td>Profil pertubuhan (booklet)</td><td class="hide-sm fine">5.9 MB</td><td style="text-align:right"><span class="pill ok">Awam</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- stats -->
+    <section class="view" id="v-stats" style="padding:0">
+      <h1>Statistik laman</h1>
+      <p class="sub">Angka di bahagian atas laman utama. Tukar di sini, laman terus dikemas kini.</p>
+      <form class="panel" id="statForm">
+        <div class="panel-h"><h2>Statistik semasa</h2><button class="btn btn-navy" type="submit">Simpan</button></div>
+        <div class="statf">
+          <div><label for="s1">Pelajar aktif</label><input id="s1" type="number" value="150" inputmode="numeric"></div>
+          <div><label for="s2">Islamic Centre</label><input id="s2" type="number" value="4" inputmode="numeric"></div>
+          <div><label for="s3">Pelajar menengah & universiti</label><input id="s3" type="number" value="40" inputmode="numeric"></div>
+          <div><label for="s4">Sehingga (bulan, tahun)</label><input id="s4" value="Mei 2026"></div>
+        </div>
+      </form>
+      <div class="panel">
+        <div class="panel-h"><h2>Perbelanjaan tahunan (carta)</h2></div>
+        <table class="tbl"><thead><tr><th>Tahun</th><th style="text-align:right">Jumlah (RM)</th><th>Jenis</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td style="text-align:right">461,722.45</td><td><span class="pill ok">Sebenar</span></td></tr>
+            <tr><td>2026</td><td style="text-align:right">550,000.00</td><td><span class="pill draft">Unjuran</span></td></tr>
+          </tbody></table>
+      </div>
+    </section>
+
+    <!-- leads -->
+    <section class="view" id="v-leads" style="padding:0">
+      <h1>Pertanyaan penaung</h1>
+      <p class="sub">Dari borang "Nyatakan minat" di halaman Penaung Dakwah. Admin juga dapat emel setiap kali ada pertanyaan baharu.</p>
+      <div class="panel">
+        <div class="tbl-wrap"><table class="tbl" id="leadTbl">
+          <thead><tr><th>Nama</th><th class="hide-sm">Kategori</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td><b>Contoh: Syarikat ABC Sdn Bhd</b><br><span class="fine">012 345 6789</span></td><td class="hide-sm">Penaung Emas</td><td><span class="pill new">Baharu</span></td><td><button class="link mark">Tanda dihubungi</button></td></tr>
+            <tr><td><b>Contoh: Yayasan XYZ</b><br><span class="fine">019 876 5432</span></td><td class="hide-sm">Belum pasti</td><td><span class="pill new">Baharu</span></td><td><button class="link mark">Tanda dihubungi</button></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- admins -->
+    <section class="view" id="v-admins" style="padding:0">
+      <h1>Admin & peranan</h1>
+      <p class="sub">Boleh tambah lebih dari seorang admin. Setiap orang log masuk dengan akaun sendiri.</p>
+      <div class="panel">
+        <div class="panel-h"><h2>Senarai admin</h2><button class="btn btn-gold" id="addAdmin">Tambah admin</button></div>
+        <div class="tbl-wrap"><table class="tbl" id="adminTbl">
+          <thead><tr><th>Nama</th><th class="hide-sm">Emel</th><th>Peranan</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Md Isa Daud</td><td class="hide-sm">setiausaha@arrahmah.my</td><td><span class="pill">Super Admin</span></td><td></td></tr>
+            <tr><td>Zakaria M Hj Mydin</td><td class="hide-sm">bendahari@arrahmah.my</td><td><span class="pill">Editor</span></td><td><button class="link del">Buang</button></td></tr>
+            <tr><td>Saiful Nizar Abd Rahim</td><td class="hide-sm">media@arrahmah.my</td><td><span class="pill">Penulis</span></td><td><button class="link del">Buang</button></td></tr>
+          </tbody>
+        </table></div>
+        <div class="note-box">
+          <b>Super Admin</b>: semua, termasuk urus admin. <b>Editor</b>: berita, laporan, statistik, pertanyaan. <b>Penulis</b>: tulis berita, perlu kelulusan Editor.
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<dialog id="dlgAdmin">
+  <form class="form" method="dialog" id="adminForm" novalidate>
+    <h2 style="font-size:1.3rem;margin:0">Tambah admin</h2>
+    <div data-req><label for="an">Nama</label><input id="an"><p class="err">Sila isi nama.</p></div>
+    <div data-req><label for="ae">Emel</label><input id="ae" type="email"><p class="err">Sila isi emel yang sah.</p></div>
+    <div><label for="ar">Peranan</label><select id="ar"><option>Editor</option><option>Penulis</option><option>Super Admin</option></select></div>
+    <p class="roles-help" style="margin:0">Admin baharu akan terima emel jemputan untuk tetapkan kata laluan sendiri.</p>
+    <div class="actions"><button class="btn btn-navy" value="ok">Hantar jemputan</button><button class="btn btn-line" value="cancel" formnovalidate>Batal</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlgNews">
+  <form class="form" method="dialog" id="newsForm" novalidate>
+    <h2 style="font-size:1.3rem;margin:0">Tambah berita</h2>
+    <div data-req><label for="nt">Tajuk</label><input id="nt"><p class="err">Sila isi tajuk.</p></div>
+    <div><label for="nk">Kategori</label><select id="nk"><option>Pendidikan</option><option>Dakwah</option><option>Kebajikan</option><option>Malaysia</option></select></div>
+    <div><label for="ni">Gambar</label><input id="ni" type="file" accept="image/*"></div>
+    <div><label for="nb">Isi berita</label><textarea id="nb"></textarea></div>
+    <div class="actions"><button class="btn btn-navy" value="pub">Terbit</button><button class="btn btn-line" value="draft">Simpan draf</button><button class="btn btn-line" value="cancel" formnovalidate style="border-color:transparent">Batal</button></div>
+  </form>
+</dialog>
+
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="site.js"></script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  $('#loginForm').addEventListener('submit', function (e) { e.preventDefault(); $('#login').style.display = 'none'; $('#app').classList.add('on'); });
+  if (/^#(dash|news|reports|stats|leads|admins)$/.test(location.hash)) { $('#login').style.display = 'none'; $('#app').classList.add('on'); }
+  $('#logout').addEventListener('click', function (e) { e.preventDefault(); $('#app').classList.remove('on'); $('#login').style.display = ''; });
+
+  function go(v) {
+    document.querySelectorAll('.side [data-v]').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.v === v); });
+    document.querySelectorAll('.view').forEach(function (s) { s.classList.toggle('on', s.id === 'v-' + v); });
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll('[data-v]').forEach(function (b) { b.addEventListener('click', function () { go(b.dataset.v); }); });
+  document.querySelectorAll('[data-go]').forEach(function (b) { b.addEventListener('click', function () { go(b.dataset.go); }); });
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function check(form) {
+    var ok = true;
+    form.querySelectorAll('[data-req]').forEach(function (f) {
+      var i = f.querySelector('input'); var v = i.value.trim();
+      var bad = !v || (i.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      f.classList.toggle('invalid', bad); if (bad) ok = false;
+    });
+    return ok;
+  }
+
+  // admins
+  var dA = $('#dlgAdmin');
+  $('#addAdmin').addEventListener('click', function () { $('#adminForm').reset(); dA.querySelectorAll('.invalid').forEach(function (x) { x.classList.remove('invalid'); }); dA.showModal(); });
+  $('#adminForm').addEventListener('submit', function (e) {
+    if (e.submitter && e.submitter.value === 'cancel') return;
+    if (!check(this)) { e.preventDefault(); return; }
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + esc($('#an').value) + '</td><td class="hide-sm">' + esc($('#ae').value) + '</td><td><span class="pill">' + esc($('#ar').value) + '</span> <span class="pill draft">Jemputan dihantar</span></td><td><button class="link del">Buang</button></td>';
+    $('#adminTbl tbody').appendChild(tr);
+    $('#kAdmins').textContent = $('#adminTbl tbody').rows.length;
+    say('Jemputan dihantar ke ' + $('#ae').value);
+  });
+  $('#adminTbl').addEventListener('click', function (e) {
+    if (e.target.classList.contains('del')) { e.target.closest('tr').remove(); $('#kAdmins').textContent = $('#adminTbl tbody').rows.length; say('Admin dibuang'); }
+  });
+
+  // news
+  var dN = $('#dlgNews');
+  $('#newNews').addEventListener('click', function () { $('#newsForm').reset(); dN.querySelectorAll('.invalid').forEach(function (x) { x.classList.remove('invalid'); }); dN.showModal(); });
+  $('#newsForm').addEventListener('submit', function (e) {
+    var v = e.submitter ? e.submitter.value : 'pub';
+    if (v === 'cancel') return;
+    if (!check(this)) { e.preventDefault(); return; }
+    var pub = v === 'pub';
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + esc($('#nt').value) + '</td><td class="hide-sm">' + esc($('#nk').value) + '</td><td><span class="pill ' + (pub ? 'ok">Diterbit' : 'draft">Draf') + '</span></td><td><button class="link">Sunting</button></td>';
+    $('#newsTbl tbody').prepend(tr);
+    if (pub) $('#kNews').textContent = +$('#kNews').textContent + 1;
+    say(pub ? 'Berita diterbitkan' : 'Draf disimpan');
+  });
+
+  // reports
+  $('#pdf').addEventListener('change', function () {
+    var f = this.files[0]; if (!f) return;
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + esc(f.name) + '</td><td class="hide-sm fine">' + (f.size / 1048576).toFixed(1) + ' MB</td><td style="text-align:right"><span class="pill ok">Awam</span></td>';
+    $('#repTbl tbody').prepend(tr); say('Laporan dimuat naik'); this.value = '';
+  });
+
+  if ($('#app').classList.contains('on')) go(location.hash.slice(1));
+  $('#statForm').addEventListener('submit', function (e) { e.preventDefault(); say('Statistik disimpan'); });
+
+  // leads
+  $('#leadTbl').addEventListener('click', function (e) {
+    if (!e.target.classList.contains('mark')) return;
+    var p = e.target.closest('tr').querySelector('.pill'); p.className = 'pill ok'; p.textContent = 'Dihubungi'; e.target.remove();
+    var n = $('#leadTbl').querySelectorAll('.pill.new').length; var b = $('#leadCount');
+    b.textContent = n; b.style.display = n ? '' : 'none';
+  });
+})();
+</script>
+</body>
+</html>
