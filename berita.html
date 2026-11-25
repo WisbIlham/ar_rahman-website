@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berita · Ar Rahmah Malaysia</title>
+<meta name="description" content="Berita dan aktiviti Pertubuhan Ar Rahmah Malaysia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="mock-bar"><b>DRAF MOCKUP</b> · Kandungan diurus dari <a href="admin.html" style="color:#fff">CMS admin</a></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo Ar Rahmah Malaysia">
+      <span>Ar Rahmah Malaysia<small>Pertubuhan · Sejak 2013</small></span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="index.html#tentang">Tentang</a>
+      <a href="index.html#program">Program</a>
+      <a href="index.html#centre">Islamic Centre</a>
+      <a href="index.html#ketelusan">Ketelusan</a>
+      <a href="berita.html" aria-current="page">Berita</a>
+      <a href="penaung.html">Penaung Dakwah</a>
+      <a class="btn btn-gold" href="index.html#sumbang">Sumbang</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <article class="article" id="article"></article>
+    <div id="news-list-wrap">
+      <p class="eyebrow">Berita & aktiviti</p>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">Dari lapangan</h1>
+      <div class="news" id="news"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <img src="assets/logo-gold.png" alt="Ar Rahmah Malaysia">
+        <p style="color:#fff;font-weight:600;margin-bottom:4px">Pertubuhan Ar Rahmah Malaysia</p>
+        <p data-t="site.address">No. 7, Tingkat 2, Jalan Permatang Gedong, Taman Sejati Indah, 08000 Sungai Petani, Kedah</p>
+      </div>
+      <div>
+        <h4>Hubungi</h4>
+        <p><span data-t="site.phone1_name">Md Isa Daud</span><br><a data-tel="site.phone1" href="tel:+60124758876">+6012 475 8876</a></p>
+        <p><span data-t="site.phone2_name">Zakaria (Mamu Z)</span><br><a data-tel="site.phone2" href="tel:+60124101696">+6012 410 1696</a></p>
+      </div>
+      <div>
+        <h4>Sumbangan</h4>
+        <p><span data-t="site.bank_name">Maybank</span> · <span data-t="site.bank_holder">Pertubuhan Ar Rahmah Malaysia</span><br><b style="color:#fff" data-t="site.bank_acc">5520 3110 4857</b></p>
+      </div>
+    </div>
+    <div class="base">© 2026 Pertubuhan Ar Rahmah Malaysia · ROS <span data-t="site.ros">PMM-022-07-140322013</span> · <a href="admin.html">Log masuk admin</a></div>
+  </div>
+</footer>
+
+<div class="give-bar">
+  <a class="btn btn-gold" href="index.html#sumbang">Sumbang</a>
+  <a class="btn btn-line" style="color:#fff" href="penaung.html">Penaung Dakwah</a>
+</div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="data.js"></script>
+<script src="cms.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

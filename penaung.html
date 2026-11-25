@@ -55,7 +55,7 @@
 </head>
 <body>
 
-<div class="mock-bar"><b>DRAF MOCKUP</b> · Web Impian untuk Pertubuhan Ar Rahmah Malaysia</div>
+<div class="mock-bar"><b>DRAF MOCKUP</b> · Kandungan diurus dari <a href="admin.html" style="color:#fff">CMS admin</a></div>
 
 <header class="site-head">
   <div class="wrap">
@@ -71,7 +71,7 @@
       <a href="index.html#program">Program</a>
       <a href="index.html#centre">Islamic Centre</a>
       <a href="index.html#ketelusan">Ketelusan</a>
-      <a href="index.html#berita">Berita</a>
+      <a href="berita.html">Berita</a>
       <a href="penaung.html" aria-current="page">Penaung Dakwah</a>
       <a class="btn btn-gold" href="index.html#sumbang">Sumbang</a>
     </nav>
@@ -133,26 +133,7 @@
     <p class="eyebrow">Kategori penaung</p>
     <h2>Komitmen tahunan</h2>
     <p class="lead">Semua Penaung Dakwah dalam setiap kategori menjadi Ahli Majlis Penaung Ar Rahmah Malaysia.</p>
-    <div class="tiers">
-      <div class="tier top">
-        <h3>Penaung Utama</h3>
-        <div class="amt">RM100,000</div>
-        <p class="per">setahun dan ke atas</p>
-        <a class="btn btn-gold" href="#daftar" data-tier="Penaung Utama">Pilih kategori ini</a>
-      </div>
-      <div class="tier">
-        <h3>Penaung Platinum</h3>
-        <div class="amt">RM50,000</div>
-        <p class="per">setahun dan ke atas</p>
-        <a class="btn btn-navy" href="#daftar" data-tier="Penaung Platinum">Pilih kategori ini</a>
-      </div>
-      <div class="tier">
-        <h3>Penaung Emas</h3>
-        <div class="amt">RM30,000</div>
-        <p class="per">setahun dan ke atas</p>
-        <a class="btn btn-navy" href="#daftar" data-tier="Penaung Emas">Pilih kategori ini</a>
-      </div>
-    </div>
+    <div class="tiers" id="tiers"></div>
     <p class="fine" style="margin-top:12px">"Dan apa sahaja yang kamu belanjakan, Allah akan menggantikannya. Dia adalah sebaik-baik pemberi rezeki." (Surah Saba': 39)</p>
   </div>
 </section>
@@ -182,8 +163,8 @@
       <p class="lead">Isi borang ringkas ini. Setiausaha kami akan menghubungi anda dalam masa 3 hari bekerja.</p>
       <ul class="meta-list">
         <li><span>Setiausaha Agung</span><span>Ir Md Isa bin Daud</span></li>
-        <li><span>Telefon</span><span><a href="tel:+60124758876">+6012 475 8876</a></span></li>
-        <li><span>Emel</span><span><a href="mailto:arrahmahmalaysia@gmail.com">arrahmahmalaysia@gmail.com</a></span></li>
+        <li><span>Telefon</span><span><a data-tel="site.phone1" href="tel:+60124758876">+6012 475 8876</a></span></li>
+        <li><span>Emel</span><span><a data-mail href="mailto:arrahmahmalaysia@gmail.com">arrahmahmalaysia@gmail.com</a></span></li>
       </ul>
       <p class="fine" style="margin-top:14px">Borang ini masuk terus ke CMS (menu "Pertanyaan Penaung") dan dihantar ke emel admin.</p>
     </div>
@@ -220,19 +201,19 @@
       <div>
         <img src="assets/logo-gold.png" alt="Ar Rahmah Malaysia">
         <p style="color:#fff;font-weight:600;margin-bottom:4px">Pertubuhan Ar Rahmah Malaysia</p>
-        <p>No. 7, Tingkat 2, Jalan Permatang Gedong,<br>Taman Sejati Indah, 08000 Sungai Petani, Kedah</p>
+        <p data-t="site.address">No. 7, Tingkat 2, Jalan Permatang Gedong, Taman Sejati Indah, 08000 Sungai Petani, Kedah</p>
       </div>
       <div>
         <h4>Hubungi</h4>
-        <p>Md Isa Daud<br><a href="tel:+60124758876">+6012 475 8876</a></p>
-        <p>Zakaria (Mamu Z)<br><a href="tel:+60124101696">+6012 410 1696</a></p>
+        <p><span data-t="site.phone1_name">Md Isa Daud</span><br><a data-tel="site.phone1" href="tel:+60124758876">+6012 475 8876</a></p>
+        <p><span data-t="site.phone2_name">Zakaria (Mamu Z)</span><br><a data-tel="site.phone2" href="tel:+60124101696">+6012 410 1696</a></p>
       </div>
       <div>
         <h4>Sumbangan</h4>
-        <p>Maybank · Pertubuhan Ar Rahmah Malaysia<br><b style="color:#fff">5520 3110 4857</b></p>
+        <p><span data-t="site.bank_name">Maybank</span> · <span data-t="site.bank_holder">Pertubuhan Ar Rahmah Malaysia</span><br><b style="color:#fff" data-t="site.bank_acc">5520 3110 4857</b></p>
       </div>
     </div>
-    <div class="base">© 2026 Pertubuhan Ar Rahmah Malaysia · ROS PMM-022-07-140322013 · <a href="admin.html">Log masuk admin</a></div>
+    <div class="base">© 2026 Pertubuhan Ar Rahmah Malaysia · ROS <span data-t="site.ros">PMM-022-07-140322013</span> · <a href="admin.html">Log masuk admin</a></div>
   </div>
 </footer>
 
@@ -241,11 +222,8 @@
   <a class="btn btn-line" style="color:#fff" href="index.html#sumbang">Sumbang</a>
 </div>
 <div class="toast" role="status" aria-live="polite"></div>
+<script src="data.js"></script>
+<script src="cms.js"></script>
 <script src="site.js"></script>
-<script>
-  document.querySelectorAll('[data-tier]').forEach(function (a) {
-    a.addEventListener('click', function () { document.getElementById('kat').value = a.getAttribute('data-tier'); });
-  });
-</script>
 </body>
 </html>
