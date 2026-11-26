@@ -54,7 +54,7 @@ section{padding:64px 0}
 
 /* hero (layered right photo + soft left navy fade) */
 .hero{position:relative;padding:0;background:#0C1E3E;color:#fff;overflow:hidden}
-.hero-img{position:absolute;top:0;right:0;bottom:0;width:68%;z-index:1;overflow:hidden}
+.hero-img{position:absolute;top:0;right:0;bottom:0;width:74%;z-index:1;overflow:hidden}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .hero-img figcaption{position:absolute;right:16px;bottom:14px;z-index:3;font-size:.75rem;color:#fff;background:rgba(8,22,48,.75);backdrop-filter:blur(4px);padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18)}
 
@@ -64,15 +64,20 @@ section{padding:64px 0}
   background:linear-gradient(
     90deg,
     #0C1E3E 0%,
-    #0C1E3E 36%,
-    rgba(12,30,62,.9) 43%,
-    rgba(12,30,62,.38) 50%,
-    rgba(12,30,62,0) 57%,
+    #0C1E3E 28%,
+    rgba(12,30,62,.9) 36%,
+    rgba(12,30,62,.38) 44%,
+    rgba(12,30,62,0) 51%,
     rgba(12,30,62,0) 100%
   );
 }
 
-.hero-body{position:relative;z-index:3;min-height:560px;display:flex;align-items:center;padding:56px 16px 64px}
+.hero-body{
+  position:relative;z-index:3;min-height:560px;
+  max-width:none;margin:0;
+  display:flex;align-items:center;
+  padding:56px 24px 64px clamp(20px, 4vw, 100px);
+}
 .hero-col{max-width:540px}
 
 .hero-pill{
