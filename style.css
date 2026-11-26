@@ -679,3 +679,39 @@ textarea{min-height:110px;resize:vertical}
   .ajk-meta li{justify-content:center;flex-wrap:wrap}
   .ajk-meta b{min-width:auto}
 }
+
+/* main page ketelusan CTA row below bar chart */
+.chart-more{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;margin-top:24px;
+}
+.chart-more-note{margin:0;color:#C9D3E3;font-size:.95rem;max-width:56ch}
+
+/* standalone ketelusan.html page */
+.ketelusan-page{padding:56px 0 80px}
+.ketelusan-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+  padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.14);
+}
+.ketelusan-head h1{color:#fff;font-size:clamp(2rem,4.5vw,3rem);margin-bottom:10px}
+.ketelusan-head .lead{margin:0}
+.ketelusan-back{color:#fff;border-color:rgba(255,255,255,.35)}
+.ketelusan-back:hover{background:rgba(255,255,255,.08)}
+
+.ketelusan-block{margin-top:48px}
+.ketelusan-block h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
+
+.dana-wide{max-width:860px;margin:28px auto 0}
+.dana-wide .dana-left,.dana-wide .dana-right{font-size:.96rem}
+
+.report-panel{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;
+  padding:28px 32px;
+}
+
+@media (max-width:680px){
+  .report-panel{padding:22px 18px}
+}
