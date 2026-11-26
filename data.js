@@ -3,7 +3,7 @@
 window.DEFAULT_CONTENT = {
   v: 1,
   site: {
-    hero_title: 'Membina Generasi Muslim Baharu Masa Hadapan di Utara Thailand',
+    hero_title: 'Bersama Membina Generasi Muslim Masa Hadapan',
     tagline_en: 'Building future Muslim generations in Northern Thailand',
     hero_text: "Kami menjaga, mendidik dan membimbing anak-anak mualaf daripada komuniti 'Orang Bukit' di Phayao dan Chiang Rai, seawal usia 7 tahun.",
     hero_image: 'assets/hero.jpg',
@@ -25,10 +25,10 @@ window.DEFAULT_CONTENT = {
   },
   stats: { students: '150', centres: '4', uni: '40', years: '30+', asof: 'Mei 2026' },
   centres: [
-    { id: 'c1', name: 'Phayao Islamic Centre', region: 'Phayao, Utara Thailand', students: 60, note: '' },
-    { id: 'c2', name: 'Pangsa Islamic Centre', region: 'Chiang Rai, Utara Thailand', students: 60, note: '' },
-    { id: 'c3', name: 'Wiang Mok Islamic Centre', region: 'Chiang Rai, Utara Thailand', students: 30, note: '' },
-    { id: 'c4', name: 'Islamic Centre Saiburi', region: 'Pattani, Selatan Thailand', students: 40, note: 'Menengah & universiti' }
+    { id: 'c1', name: 'Phayao Islamic Centre', region: 'Phayao, Utara Thailand', students: 60, note: 'Sekolah rendah & asrama' },
+    { id: 'c2', name: 'Pangsa Islamic Centre', region: 'Chiang Rai, Utara Thailand', students: 60, note: 'Sekolah rendah & bimbingan' },
+    { id: 'c3', name: 'Wiang Mok Islamic Centre', region: 'Chiang Rai, Utara Thailand', students: 30, note: 'Sekolah rendah & asrama' },
+    { id: 'c4', name: 'Saiburi Islamic Centre', region: 'Pattani, Selatan Thailand', students: 40, note: 'Peringkat menengah & universiti' }
   ],
   spending: [
     { year: 2021, amount: 601748.50, type: 'actual' },

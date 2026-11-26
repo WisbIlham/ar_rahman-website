@@ -49,8 +49,12 @@
 
   if ($('centres-body')) {
     $('centres-body').innerHTML = d.centres.map(function (c) {
-      return '<tr><td><b>' + esc(c.name) + '</b>' + (c.note ? '<br><span class="fine">' + esc(c.note) + '</span>' : '') +
-        '</td><td class="hide-sm">' + esc(c.region) + '</td><td class="n">' + esc(c.students) + '</td></tr>';
+      var isSouth = /pattani|selatan/i.test(c.region || '');
+      return '<tr>' +
+        '<td><b>' + esc(c.name) + '</b>' + (c.note ? '<span class="sub">' + esc(c.note) + '</span>' : '') + '</td>' +
+        '<td class="hide-sm"><span class="pill' + (isSouth ? ' south' : '') + '">' + esc(c.region) + '</span></td>' +
+        '<td class="n">' + esc(c.students) + '</td>' +
+      '</tr>';
     }).join('');
   }
 
@@ -58,11 +62,69 @@
     var sp = d.spending.slice().sort(function (a, b) { return a.year - b.year; });
     var max = Math.max.apply(null, sp.map(function (x) { return +x.amount; }).concat([1]));
     var cols = 'repeat(' + sp.length + ',1fr)';
-    $('chart').style.gridTemplateColumns = cols; $('years').style.gridTemplateColumns = cols;
+    $('chart').style.gridTemplateColumns = cols;
+    $('years').style.gridTemplateColumns = cols;
+
+    var roYear = $('ro-year'), roAmt = $('ro-amt'), roType = $('ro-type');
+    function fmtRM(n) {
+      return 'RM' + Number(n).toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
     $('chart').innerHTML = sp.map(function (x) {
-      return '<div class="bar' + (x.type === 'projection' ? ' proj' : '') + '" style="height:' + (x.amount / max * 100).toFixed(1) + '%" title="' + x.year + ': RM' + C.money(x.amount) + '"><span>' + C.short(x.amount) + '</span></div>';
+      var isProj = x.type === 'projection';
+      var lbl = isProj ? 'Unjuran' : 'Perbelanjaan sebenar';
+      var pct = Math.max(4, (x.amount / max * 92)).toFixed(1);
+      return '<div class="bar-col' + (x.year === 2025 ? ' active' : '') + '" role="listitem" tabindex="0" data-y="' + x.year + '" data-a="' + x.amount + '" data-l="' + lbl + '">' +
+        '<span class="bar-val">' + C.short(x.amount) +
+          '<span class="bar-tip"><b>' + fmtRM(x.amount) + '</b><small>' + x.year + ' · ' + lbl + '</small></span>' +
+        '</span>' +
+        '<div class="bar-rect' + (isProj ? ' proj' : '') + '" style="height:' + pct + '%"></div>' +
+      '</div>';
     }).join('');
-    $('years').innerHTML = sp.map(function (x) { return '<span>' + esc(x.year) + '</span>'; }).join('');
+
+    $('years').innerHTML = sp.map(function (x) {
+      var isProj = x.type === 'projection';
+      return '<span' + (isProj ? ' class="proj-yr"' : '') + '>' + esc(x.year) + (isProj ? '*' : '') + '</span>';
+    }).join('');
+
+    var barCols = Array.prototype.slice.call($('chart').querySelectorAll('.bar-col'));
+    var prevBtn = $('chart-prev'), nextBtn = $('chart-next'), scroller = $('chart-scroll');
+    var activeIdx = 0;
+
+    function pickBar(col, shouldScroll) {
+      activeIdx = barCols.indexOf(col);
+      barCols.forEach(function (c) { c.classList.remove('active'); });
+      col.classList.add('active');
+      if (roYear) roYear.textContent = col.dataset.y;
+      if (roAmt) roAmt.textContent = fmtRM(col.dataset.a);
+      if (roType) roType.textContent = '· ' + col.dataset.l;
+      if (prevBtn) prevBtn.disabled = activeIdx <= 0;
+      if (nextBtn) nextBtn.disabled = activeIdx >= barCols.length - 1;
+      if (shouldScroll && scroller && scroller.scrollWidth > scroller.clientWidth) {
+        var target = col.offsetLeft - (scroller.clientWidth / 2) + (col.offsetWidth / 2);
+        scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+      }
+    }
+
+    barCols.forEach(function (col) {
+      col.addEventListener('mouseenter', function () { pickBar(col, false); });
+      col.addEventListener('focus', function () { pickBar(col, true); });
+      col.addEventListener('click', function () { pickBar(col, true); });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        if (activeIdx > 0) pickBar(barCols[activeIdx - 1], true);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        if (activeIdx < barCols.length - 1) pickBar(barCols[activeIdx + 1], true);
+      });
+    }
+
+    var defCol = $('chart').querySelector('.bar-col.active') || barCols[barCols.length - 1];
+    if (defCol) pickBar(defCol, false);
   }
 
   if ($('reports')) {

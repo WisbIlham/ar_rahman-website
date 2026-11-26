@@ -24,7 +24,16 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="nav" id="nav">
-      <a href="#tentang">Tentang</a>
+      <div class="nav-drop">
+  <a href="#tentang" class="drop-trigger">
+    Tentang
+    <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+  <div class="drop-menu">
+    <a href="#tentang">Tentang Kami</a>
+    <a href="ajk.html">AJK &amp; Penasihat</a>
+  </div>
+</div>
       <a href="#program">Program</a>
       <a href="#centre">Islamic Centre</a>
       <a href="#ketelusan">Ketelusan</a>
@@ -41,16 +50,24 @@
     <img src="assets/hero.jpg" data-src="site.hero_image" alt="Pelajar dan guru di Islamic Centre Ar Rahmah, Utara Thailand">
     <figcaption>Pelajar Islamic Centre, Utara Thailand</figcaption>
   </figure>
+  <div class="hero-fade" aria-hidden="true"></div>
+
   <div class="wrap hero-body">
-    <div>
-      <h1 data-t="site.hero_title">Membina Generasi Muslim Baharu Masa Hadapan di Utara Thailand</h1>
+    <div class="hero-col">
+      <div class="hero-pill">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Utara Thailand · Phayao &amp; Chiang Rai</span>
+      </div>
+
+      <h1>Bersama Membina<br><span class="hero-gold">Generasi Muslim</span> Masa Hadapan</h1>
       <p class="tag-en" data-t="site.tagline_en">Building future Muslim generations in Northern Thailand</p>
-    </div>
-    <div class="hero-side">
-      <p data-t="site.hero_text">Kami menjaga, mendidik dan membimbing anak-anak mualaf daripada komuniti 'Orang Bukit' di Phayao dan Chiang Rai, seawal usia 7 tahun.</p>
-      <div class="actions">
-        <a class="btn btn-gold" href="#sumbang">Sumbang sekarang</a>
-        <a class="btn btn-line" href="penaung.html">Jadi Penaung Dakwah</a>
+
+      <div class="hero-side">
+        <p data-t="site.hero_text">Kami menjaga, mendidik dan membimbing anak-anak mualaf daripada komuniti 'Orang Bukit' di Phayao dan Chiang Rai, seawal usia 7 tahun.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="#sumbang">Sumbang sekarang</a>
+          <a class="btn btn-line" href="penaung.html">Jadi Penaung Dakwah</a>
+        </div>
       </div>
     </div>
   </div>
@@ -74,8 +91,10 @@
       <p class="eyebrow">Tentang kami</p>
       <h2 data-t="site.about_title">Meneruskan amanah dakwah yang bermula lebih 30 tahun dahulu</h2>
       <p data-t="site.about_text">Usaha ini dimulakan oleh Almarhum Ustaz Abdul Wahab Ahmad bersama para pendakwah tempatan di wilayah Phayao dan Chiang Rai. Pertubuhan Ar Rahmah Malaysia ditubuhkan untuk meneruskan perjuangan itu, dengan pendidikan yang tersusun untuk anak-anak mualaf supaya saudara baharu tidak kembali mundur.</p>
-      <p><b>Visi:</b> <span data-t="site.visi">Melahirkan generasi Muslim mualaf yang berilmu, berakhlak mulia dan mampu membina komuniti Islam yang kukuh serta berdikari dalam tempoh 20 tahun.</span></p>
-      <ul class="meta-list">
+<div class="visi-box"><span class="visi-label">Visi 20 Tahun</span>
+  <p data-t="site.visi">Melahirkan generasi Muslim mualaf yang berilmu, berakhlak mulia dan mampu membina komuniti Islam yang kukuh serta berdikari dalam tempoh 20 tahun.</p>
+</div>  
+        <ul class="meta-list">
         <li><span>Ditubuhkan</span><span data-t="site.founded">14 Mac 2013</span></li>
         <li><span>No. Pendaftaran ROS</span><span data-t="site.ros">PMM-022-07-140322013</span></li>
         <li><span>Status</span><span>Pertubuhan Bukan Kerajaan (NGO)</span></li>
@@ -90,17 +109,19 @@
           <cite><span data-t="site.chair_name">Amir Hamzah bin Abdul Hashim</span><small data-t="site.chair_role">Pengerusi</small></cite>
         </div>
       </div>
-      <p class="eyebrow" style="margin-top:36px">Model pembangunan</p>
-      <p style="margin:0;color:var(--muted)">Perjalanan seorang anak, daripada belum mengenali Islam hingga menjadi pembina ummah.</p>
-      <ol class="steps v">
-        <li>Bukan Islam</li>
-        <li>Mualaf</li>
-        <li>Asrama dan penjagaan</li>
-        <li>Pendidikan Islam</li>
-        <li>Pendidikan akademik</li>
-        <li>Muslim berilmu</li>
-        <li>Pembina ummah</li>
-      </ol>
+      <div class="model-card">
+  <p class="eyebrow">Model pembangunan</p>
+  <p class="model-sub">Perjalanan seorang anak, daripada belum mengenali Islam sehinggalah menjadi pembina ummah.</p>
+  <ol class="model-steps">
+    <li>Bukan Islam</li>
+    <li>Mualaf</li>
+    <li>Asrama dan penjagaan</li>
+    <li>Pendidikan Islam</li>
+    <li>Pendidikan akademik</li>
+    <li>Muslim berilmu</li>
+    <li>Pembina ummah</li>
+  </ol>
+</div>
     </div>
   </div>
 </section>
@@ -108,14 +129,14 @@
 <section id="program" class="pillars">
   <div class="wrap">
     <p class="eyebrow">Tiga teras utama</p>
-    <h2>Apa yang kami lakukan setiap hari</h2>
+    <h2>Usaha yang kami lakukan setiap hari</h2>
 
     <div class="pillar">
       <div class="pillar-img"><img src="assets/pendidikan.jpg" alt="Pelajar beratur untuk makan di asrama" loading="lazy"></div>
       <div>
         <p class="num">01</p>
         <h3>Pendidikan dan penjagaan pelajar</h3>
-        <p>Menggabungkan ilmu akademik dan pendidikan Islam, bermula seawal usia 7 tahun.</p>
+        <p>Menggabungkan ilmu akademik dan pendidikan Islam bermula seawal usia 7 tahun.</p>
         <ul><li>Asrama, makanan dan keperluan asas</li><li>Pendidikan akademik dan pendidikan Islam</li><li>Sokongan ke peringkat menengah dan universiti</li></ul>
       </div>
     </div>
@@ -125,8 +146,8 @@
       <div>
         <p class="num">02</p>
         <h3>Dakwah lapangan</h3>
-        <p>Memperkenalkan Islam dan mengukuhkan kefahaman agama dalam komuniti pedalaman, dengan hikmah dan kasih sayang.</p>
-        <ul><li>Dakwah masyarakat pedalaman</li><li>Program pengislaman</li><li>Kelas pengajian Islam dan ziarah komuniti</li></ul>
+        <p>Memperkenalkan Islam serta mengukuhkan kefahaman agama dalam kalangan komuniti pedalaman secara berhikmah dan penuh kasih sayang.</p>
+        <ul><li>Dakwah kepada masyarakat pedalaman</li><li>Program pengislaman</li><li>Kelas pengajian Islam dan ziarah komuniti</li></ul>
       </div>
     </div>
 
@@ -135,8 +156,8 @@
       <div>
         <p class="num">03</p>
         <h3>Kebajikan</h3>
-        <p>Membantu memenuhi keperluan asas supaya mereka dapat fokus belajar dan beribadah.</p>
-        <ul><li>Sumbangan barang keperluan kepada orang kampung</li><li>Membantu anak yatim dan mualaf yang kurang berkemampuan</li><li>Program korban tahunan sejak 2013</li></ul>
+        <p>Membantu memenuhi keperluan asas supaya mereka dapat memberikan tumpuan kepada pembelajaran dan ibadah.</p>
+        <ul><li>Sumbangan barang keperluan kepada orang kampung</li><li>Membantu anak yatim dan golongan mualaf yang kurang berkemampuan</li><li>Program korban tahunan sejak 2013</li></ul>
       </div>
     </div>
   </div>
@@ -170,7 +191,8 @@
           <tbody id="centres-body"></tbody>
           <tfoot>
             <tr>
-              <td colspan="2">Jumlah Pelajar Aktif (<span data-t="stats.asof">Mei 2026</span>)</td>
+              <td>Jumlah Pelajar Aktif (<span data-t="stats.asof">Mei 2026</span>)</td>
+              <td class="hide-sm"></td>
               <td id="centres-total" data-t="stats.students">150</td>
             </tr>
           </tfoot>
@@ -186,24 +208,121 @@
     <h2>Perbelanjaan tahunan</h2>
     <p class="lead">Merangkumi keperluan asas pelajar, makan minum, gaji kakitangan, utiliti, penyelenggaraan premis dan pengangkutan.</p>
 
-    <div class="chart" role="img" aria-label="Perbelanjaan 2021 hingga 2025 dan unjuran 2026 hingga 2030" id="chart"></div>
-    <div class="years" id="years"></div>
-    <div class="legend"><span><i></i>Perbelanjaan sebenar (RM)</span><span><i class="p"></i>Unjuran</span></div>
+    <div class="chart-panel">
+      <button type="button" class="chart-nav prev" id="chart-prev" aria-label="Tahun sebelumnya">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button type="button" class="chart-nav next" id="chart-next" aria-label="Tahun seterusnya">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
 
-    <div class="two" style="margin-top:48px">
+      <div class="chart-head">
+        <div class="legend">
+          <span><i></i>Perbelanjaan sebenar (2021–2025)</span>
+          <span><i class="p"></i>Unjuran (2026–2030)</span>
+        </div>
+        <div class="chart-readout" aria-live="polite">
+          Tahun <strong id="ro-year">2025</strong>:
+          <strong class="ro-amt" id="ro-amt">RM461,722.45</strong>
+          <span class="ro-type" id="ro-type">· Perbelanjaan sebenar</span>
+        </div>
+      </div>
+
+      <div class="chart-scroll" id="chart-scroll">
+        <div class="chart" role="list" aria-label="Perbelanjaan 2021 hingga 2025 dan unjuran 2026 hingga 2030" id="chart"></div>
+        <div class="years" id="years"></div>
+      </div>
+    </div>
+
+    <div class="spend-bottom">
       <div>
         <h3>Ke mana dana disalurkan</h3>
-        <ol class="uses">
-          <li>Keperluan asas pelajar mualaf</li>
-          <li>Program dakwah lapangan</li>
-          <li>Pendidikan dan bahan dakwah</li>
-          <li>Utiliti dan penyelenggaraan</li>
-          <li>Pengangkutan pelajar dan program</li>
-          <li>Kebajikan mualaf tempatan</li>
-          <li>Gaji kakitangan di semua pusat</li>
-          <li>Pengurusan dan berkaitan</li>
-        </ol>
+
+        <!-- Shared light gradient for inner hexagons -->
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <defs>
+            <linearGradient id="hexFill" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#DCE2EB"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="dana-flow">
+          <div class="dana-row right" style="--c:#E13C56;--ord:5">
+            <div class="dana-left"></div>
+            <div class="dana-track">
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+              <span class="dana-line"></span><span class="dana-dot"></span>
+            </div>
+            <div class="dana-right"><b>5.</b> Pengangkutan Pelajar &amp; Program Dakwah</div>
+          </div>
+
+          <div class="dana-row left" style="--c:#9E6B9E;--ord:1">
+            <div class="dana-left"><b>1.</b> Keperluan Asas Pelajar Mualaf</div>
+            <div class="dana-track">
+              <span class="dana-dot"></span><span class="dana-line"></span>
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+            </div>
+            <div class="dana-right"></div>
+          </div>
+
+          <div class="dana-row right" style="--c:#F09B4E;--ord:6">
+            <div class="dana-left"></div>
+            <div class="dana-track">
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+              <span class="dana-line"></span><span class="dana-dot"></span>
+            </div>
+            <div class="dana-right"><b>6.</b> Program Kebajikan &amp; Sumbangan Mualaf Tempatan</div>
+          </div>
+
+          <div class="dana-row left" style="--c:#EAB924;--ord:2">
+            <div class="dana-left"><b>2.</b> Program Dakwah Lapangan</div>
+            <div class="dana-track">
+              <span class="dana-dot"></span><span class="dana-line"></span>
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+            </div>
+            <div class="dana-right"></div>
+          </div>
+
+          <div class="dana-row right" style="--c:#84B62B;--ord:7">
+            <div class="dana-left"></div>
+            <div class="dana-track">
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+              <span class="dana-line"></span><span class="dana-dot"></span>
+            </div>
+            <div class="dana-right"><b>7.</b> Gaji Kakitangan di Semua Centre</div>
+          </div>
+
+          <div class="dana-row left" style="--c:#4FA75F;--ord:3">
+            <div class="dana-left"><b>3.</b> Pendidikan &amp; Bahan Dakwah</div>
+            <div class="dana-track">
+              <span class="dana-dot"></span><span class="dana-line"></span>
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+            </div>
+            <div class="dana-right"></div>
+          </div>
+
+          <div class="dana-row right" style="--c:#42B3D5;--ord:8">
+            <div class="dana-left"></div>
+            <div class="dana-track">
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+              <span class="dana-line"></span><span class="dana-dot"></span>
+            </div>
+            <div class="dana-right"><b>8.</b> Pengurusan &amp; Berkaitan</div>
+          </div>
+
+          <div class="dana-row left" style="--c:#637BE8;--ord:4">
+            <div class="dana-left"><b>4.</b> Utiliti &amp; Penyelenggaraan</div>
+            <div class="dana-track">
+              <span class="dana-dot"></span><span class="dana-line"></span>
+              <svg class="hex" viewBox="0 0 64 56" aria-hidden="true"><polygon class="hex-out" points="17,2 47,2 62,28 47,54 17,54 2,28"/><polygon class="hex-in" points="21,9 43,9 54,28 43,47 21,47 10,28"/></svg>
+            </div>
+            <div class="dana-right"></div>
+          </div>
+        </div>
       </div>
+
       <div>
         <h3>Laporan untuk dimuat turun</h3>
         <ul class="meta-list rep-list" id="reports"></ul>
@@ -242,12 +361,27 @@
   <div class="wrap give">
     <div>
       <p class="eyebrow">Sumbangan</p>
-      <h2>Anda menyumbang, kami melaksanakan</h2>
-      <p class="lead">Bukan semua orang boleh turun ke lapangan dakwah, tetapi semua orang boleh menjadi sebab hidayah sampai kepada manusia.</p>
+      <h2>Anda menyumbang, kami laksanakan</h2>
+      <p class="lead">Bukan semua orang mampu turun ke lapangan dakwah, namun setiap orang boleh menjadi asbab hidayah sampai kepada insan lain.</p>
       <ul class="ways">
-        <li><b>Sumbangan terus</b><span>Pindahan bank ke akaun Pertubuhan Ar Rahmah Malaysia.</span></li>
-        <li><b>Bayaran zakat melalui MAIPs</b><span>Ar Rahmah menerima sebahagian jumlah. Pembayar layak mendapat pelepasan cukai 100%.</span></li>
-        <li><b>Bayaran zakat melalui PPZ MAIWP</b><span>Ar Rahmah menerima sebahagian jumlah. Pembayar layak mendapat pelepasan cukai 100%.</span></li>
+        <li>
+          <b>Sumbangan terus</b>
+          <span>Pindahan bank ke akaun Pertubuhan Ar Rahmah Malaysia.</span>
+        </li>
+        <li>
+          <div class="way-head">
+            <b>Bayaran zakat melalui MAIPs</b>
+            <span class="tax-pill">Pelepasan Cukai 100%</span>
+          </div>
+          <span>Ar Rahmah menerima sebahagian daripada jumlah tersebut. Pembayar layak mendapat pelepasan cukai 100%.</span>
+        </li>
+        <li>
+          <div class="way-head">
+            <b>Bayaran zakat melalui PPZ MAIWP</b>
+            <span class="tax-pill">Pelepasan Cukai 100%</span>
+          </div>
+          <span>Ar Rahmah menerima sebahagian daripada jumlah tersebut. Pembayar layak mendapat pelepasan cukai 100%.</span>
+        </li>
       </ul>
       <p class="fine" style="margin-top:10px">Tertakluk kepada polisi dan kelulusan institusi zakat berkaitan.</p>
     </div>
@@ -261,10 +395,14 @@
         </div>
         <p class="fine" style="margin:16px 0 0">Fasa 2 (pilihan): bayaran FPX / kad terus di laman ini.</p>
       </div>
-      <div style="margin-top:20px;padding:22px;border:1px solid var(--line);border-radius:var(--r)">
-        <h3 style="margin-bottom:6px">Untuk syarikat, yayasan & institusi</h3>
+      <div class="partner-box">
+        <span class="partner-tag">Kerjasama Strategik</span>
+        <h3 style="margin-bottom:6px">Untuk syarikat, yayasan &amp; institusi</h3>
         <p style="color:var(--muted);margin-bottom:14px">Sertai Majlis Penaung Ar Rahmah melalui program Penaung Dakwah, dengan laporan setiap suku tahun.</p>
-        <a class="btn btn-gold" href="penaung.html">Lihat program Penaung Dakwah</a>
+        <a class="btn btn-gold" href="penaung.html">
+          <span>Lihat program Penaung Dakwah</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </div>
